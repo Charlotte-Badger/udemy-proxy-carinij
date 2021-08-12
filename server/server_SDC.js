@@ -25,9 +25,10 @@ app.use('/course', (req, res) => {
 });
 
 app.use('/course/item', createProxyMiddleware({
-  target: process.env.COURSECONTENT_URL,
+  target: 'http://ec2-23-23-38-225.compute-1.amazonaws.com/',
   changeOrigin: true,
 }));
 
+// // eslint-disable-next-line no-console
 // eslint-disable-next-line no-console
 app.listen(PORT, HOST, () => { console.log(`Starting Proxy at ${HOST}:${PORT}`); });
